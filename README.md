@@ -26,18 +26,34 @@ Basic knowledge of Python, PyTorch, and CNNs is required.
 
 ## 2. Contents
 
-- [`code/dataloader/dataloader.py`](code/dataloader/dataloader.py): Defines the `CustomDataset` class used to load and preprocess breath sensor data from CSV files. 
-Provides input tensors along with coarse and fine labels for hierarchical classification.
-- [`code/models/model_CNN.py`](code/models/model_CNN.py): Implements a baseline 1D CNN model for flat 3-class classification (HC, LC, GC) without hierarchical structure.
-- [`code/models/model_HDCNN.py`](code/models/model_HDCNN.py): Implements the Hierarchical Deep Convolutional Neural Network (HD-CNN). 
-Contains a two-stage classification pipeline with a coarse classifier (HC vs. CP) and a fine classifier (LC vs. GC), combined through a probabilistic averaging layer.
-- [`code/Train_CNN.py`](code/Train_CNN.py): Training script for the 1D CNN model. 
-Includes data loading, training loop, validation, and performance reporting.
-- [`code/Train_HDCNN.py`](code/Train_HDCNN.py): Training script for the HD-CNN model. 
-Includes data loading, training loop, validation, and performance reporting.
-- [`data/`](data/): Directory containing breath sensor input data and corresponding label CSV files.  
-Includes training and validation sets for both flat and hierarchical learning.
-- [`checkpoints/`](checkpoints/): Directory for saving trained model weights, validation outputs, and prediction probability logs at specified training epochs.
+## 2. Contents
+
+- [`dataloader/dataloader.py`](dataloader/dataloader.py)  
+  Defines the `CustomDataset` class used to load and preprocess breath sensor data from CSV files.  
+  Provides input tensors along with coarse and fine labels for hierarchical classification.
+
+- [`models/model_CNN.py`](models/model_CNN.py)  
+  Implements a baseline 1D CNN model for flat 3-class classification (Healthy, Lung Cancer, Gastric Cancer) without hierarchical structure.
+
+- [`models/model_HDCNN.py`](models/model_HDCNN.py)  
+  Implements the Hierarchical Deep Convolutional Neural Network (HD-CNN).  
+  Contains a two-stage classification pipeline with a coarse classifier (HC vs. CP) and a fine classifier (LC vs. GC),  
+  combined through a probabilistic averaging layer.
+
+- [`Train_CNN.py`](Train_CNN.py)  
+  Training script for the CNN model.  
+  Includes data loading, training loop, validation, and model checkpointing.
+
+- [`Train_HDCNN.py`](Train_HDCNN.py)  
+  Training script for the HD-CNN model.  
+  Includes data loading, hierarchical training, validation, and checkpointing.
+
+- [`data/`](data/)  
+  Directory containing input sensor data and label CSV files.  
+  Includes training and validation sets for both flat CNN and hierarchical HD-CNN.
+
+- [`checkpoints/`](checkpoints/)  
+  Folder for saving trained model weights, softmax outputs, and predictions at selected training epochs.
 
 ---
 
